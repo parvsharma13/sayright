@@ -1,0 +1,87 @@
+name: Bug report
+description: Something does not work
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please check [docs/TROUBLESHOOTING.md](../blob/main/docs/TROUBLESHOOTING.md) first —
+        the bar not appearing over read-only text, and the Accessibility permission
+        resetting on rebuild, are both expected behaviour with explanations there.
+
+        **Security issues do not belong here.** See [SECURITY.md](../blob/main/SECURITY.md).
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what happened instead.
+      placeholder: |
+        1. Selected "she dont like apples" in Notes
+        2. Clicked Grammar
+        3. Expected a result panel; nothing appeared
+    validations:
+      required: true
+
+  - type: input
+    id: app
+    attributes:
+      label: Which app were you selecting text in?
+      placeholder: Notes 4.11, Chrome 140, VS Code 1.99
+    validations:
+      required: true
+
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Provider
+      options:
+        - Apple (on-device)
+        - OpenAI
+        - Anthropic
+        - Google Gemini
+        - OpenAI-compatible
+        - Not relevant
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      description: Output of `sw_vers -productVersion`
+      placeholder: "26.6.2"
+    validations:
+      required: true
+
+  - type: input
+    id: swift
+    attributes:
+      label: Swift version
+      description: First line of `swift --version`
+      placeholder: "Apple Swift version 6.4"
+
+  - type: input
+    id: version
+    attributes:
+      label: SayRight version or commit
+      placeholder: "0.1.0, or the short commit hash"
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Relevant lines from ~/Library/Logs/SayRight.log
+      description: |
+        Records app names, accessibility roles and character counts — never your text,
+        so it is safe to paste.
+      render: text
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: SayRight is switched on in System Settings ▸ Privacy & Security ▸ Accessibility
+          required: true
+        - label: The text I selected was in an editable field (or I used ⌃⌥Space)
+          required: true

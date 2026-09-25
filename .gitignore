@@ -1,0 +1,41 @@
+.build/
+build/
+.DS_Store
+*.xcodeproj
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+!.env.sample
+.secrets/
+secrets/
+credentials/
+*.pem
+*.key
+*.p12
+*.pfx
+*.mobileprovision
+*.keychain
+*.keychain-db
+.netrc
+.npmrc
+.pypirc
+.aws/
+.ssh/
+.swiftpm/configuration/
+
+# Local diagnostics, editor state and distributable builds
+*.log
+*.zip
+*.dmg
+*.app/
+*.xcuserstate
+xcuserdata/
+.idea/
+.vscode/
+.codex/
+
+# Generated promotional assets and their dependencies
+brag-output/
+node_modules/

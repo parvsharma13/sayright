@@ -1,0 +1,46 @@
+name: App compatibility
+description: The bar does not appear in an app where it should
+labels: [compatibility]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The bar only appears over **editable** text. If you were selecting page text, a
+        chat transcript or a code listing, that is intentional — use ⌃⌥Space.
+
+        If it was a real text box, SayRight logs the accessibility role it saw. Run
+        `tail -f ~/Library/Logs/SayRight.log`, reproduce it, and paste the line. The role tells us
+        whether the check can be widened safely.
+
+  - type: input
+    id: app
+    attributes:
+      label: App and version
+      placeholder: Microsoft Word 16.9, Obsidian 1.8
+    validations:
+      required: true
+
+  - type: input
+    id: field
+    attributes:
+      label: What kind of field was it?
+      placeholder: The main document body, a comment box, a search field
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: The log line
+      placeholder: "read-only selection ignored in Word: role=AXGroup"
+      render: text
+    validations:
+      required: true
+
+  - type: dropdown
+    id: hotkey
+    attributes:
+      label: Does ⌃⌥Space work there?
+      options: ["Yes", "No", "Not tried"]
+    validations:
+      required: true

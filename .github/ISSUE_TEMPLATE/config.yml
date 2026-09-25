@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/parvsharma13/sayright/security/advisories/new
+    about: Report privately, not as a public issue.
+  - name: Setup and troubleshooting
+    url: https://github.com/parvsharma13/sayright/blob/main/docs/TROUBLESHOOTING.md
+    about: Permission resets, missing bar, provider errors.

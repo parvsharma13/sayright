@@ -1,0 +1,41 @@
+name: Feature request
+description: Suggest a change
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        SayRight stays deliberately small. Please read
+        [what is likely to be declined](../blob/main/CONTRIBUTING.md#what-is-likely-to-be-declined)
+        first — new dependencies, telemetry and anything needing Xcode are non-starters,
+        and it is nothing personal.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the situation you are actually in, not the feature. It may have a simpler answer.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like it to do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What have you tried instead?
+      description: Existing actions, a different provider or model, the hotkey, a custom prompt elsewhere.
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This does not require adding a third-party dependency
+        - label: This does not require Xcode to build
+        - label: I would be willing to work on it
