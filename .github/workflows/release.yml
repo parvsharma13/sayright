@@ -24,28 +24,32 @@ jobs:
       - name: Test
         run: make test
 
-      - name: Build app bundle
-        run: make bundle CONFIG=release
-
-      - name: Zip
-        run: ditto -c -k --keepParent build/SayRight.app "SayRight-${RELEASE_TAG}.zip"
+      - name: Build disk image
+        run: make dmg
 
       - name: Publish release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release create "$RELEASE_TAG" \
-            "SayRight-${RELEASE_TAG}.zip" \
+            build/SayRight.dmg \
             --title "SayRight $RELEASE_TAG" \
-            --notes "See [CHANGELOG.md](https://github.com/${REPOSITORY}/blob/main/CHANGELOG.md).
+            --notes "## Install
 
-          **This build is ad-hoc signed, not notarized.** macOS will refuse to open it until you
-          clear the quarantine flag:
+          1. Download **SayRight.dmg** below and open it.
+          2. Drag **SayRight** onto the **Applications** folder.
+          3. Open SayRight from Applications and grant Accessibility access when asked.
+
+          **This build is not notarised by Apple**, so macOS blocks it the first time. To allow it,
+          open **System Settings > Privacy & Security**, scroll down and click **Open Anyway**
+          next to the SayRight message. Or run this once in Terminal:
 
           \`\`\`sh
           xattr -d com.apple.quarantine /Applications/SayRight.app
           \`\`\`
 
-          Because the signature differs from your previous install, macOS will also ask for
-          Accessibility access again. Building from source with \`make install\` avoids both —
-          see [docs/SETUP.md](https://github.com/${REPOSITORY}/blob/main/docs/SETUP.md)."
+          After an update, macOS asks for Accessibility access again because the signature
+          changes. Building from source with \`make install\` avoids both steps — see
+          [docs/SETUP.md](https://github.com/${REPOSITORY}/blob/main/docs/SETUP.md).
+
+          Changes: [CHANGELOG.md](https://github.com/${REPOSITORY}/blob/main/CHANGELOG.md)."

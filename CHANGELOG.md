@@ -6,8 +6,12 @@ All notable changes to SayRight. Format follows
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-09-25
+
 ### Added
 
+- **A downloadable disk image.** Each release now ships `SayRight.dmg`: open it and drag
+  SayRight to Applications. `make dmg` builds the same image locally.
 - **Filters for the places a writing assistant is not wanted.** The bar no longer appears
   in browser address bars, search fields or combo boxes, over selections shorter than a
   configurable minimum, over text with no words in it, or over a lone URL, path or email
@@ -63,7 +67,7 @@ All notable changes to SayRight. Format follows
 - `NSAllowsLocalNetworking` added, so local models work over http while remote cleartext
   stays blocked by App Transport Security.
 
-## [0.1.0] — 2026-09-15
+## 0.1.0 — 2026-09-15
 
 First working version.
 
@@ -105,5 +109,5 @@ First working version.
 - No streaming output; results appear when complete.
 - Prebuilt CI artifacts are unsigned and unnotarized; building from source is recommended.
 
-[Unreleased]: https://github.com/parvsharma13/sayright/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/parvsharma13/sayright/releases/tag/v0.1.0
+[Unreleased]: https://github.com/parvsharma13/sayright/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/parvsharma13/sayright/releases/tag/v0.2.0

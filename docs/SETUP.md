@@ -183,13 +183,16 @@ signing certificate.
 
 ## Installing a prebuilt download
 
-Every CI run produces an **unsigned** `SayRight.app` zip. macOS will refuse to open it
-normally, because it is neither signed by a known developer nor notarized:
+Each [release](https://github.com/parvsharma13/sayright/releases) includes
+`SayRight.dmg`. Open it and drag SayRight onto Applications. The app is ad-hoc signed,
+not notarised, so macOS blocks it the first time: open **System Settings ▸ Privacy &
+Security**, scroll down and click **Open Anyway**. Or clear the quarantine flag:
 
 ```sh
-xattr -d com.apple.quarantine /Applications/SayRight.app   # or right-click ▸ Open
+xattr -d com.apple.quarantine /Applications/SayRight.app
 ```
 
 Understand the trade-off before doing this: you are choosing to run a binary that Apple
-has not checked, from a build you did not make. Building from source with `make install`
+has not checked, from a build you did not make. Each update also asks for Accessibility
+access again, because the signature changes. Building from source with `make install`
 is the recommended path, and takes about a minute.

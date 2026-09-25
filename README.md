@@ -8,6 +8,23 @@ small action bar appears beside it. Choose a grammar fix, a rewrite, a different
 or a shorter or longer version. Your original text stays in place until you choose
 **Replace**. You can also copy the suggestion and use it elsewhere.
 
+[![Watch the 20-second demo: select text, fix the grammar, replace it](docs/assets/sayright-demo.jpg)](docs/assets/sayright-demo.mp4)
+
+<p align="center"><a href="docs/assets/sayright-demo.mp4">▶ Watch the demo</a></p>
+
+## Download
+
+**[Download SayRight.dmg](https://github.com/parvsharma13/sayright/releases/latest/download/SayRight.dmg)** · macOS 26 or newer
+
+1. Open **SayRight.dmg** and drag **SayRight** onto the **Applications** folder.
+2. Open SayRight from Applications. The build is not notarised by Apple, so macOS
+   blocks it the first time: open **System Settings > Privacy & Security**, scroll
+   down and click **Open Anyway**.
+3. Grant Accessibility access when prompted.
+
+Older versions and release notes are on the [releases page](https://github.com/parvsharma13/sayright/releases).
+You can also [build from source](#build-and-install).
+
 The app requires no SayRight account or subscription. Use an on-device model where
 supported, connect a local model server, or configure a supported cloud provider with
 your own API key. Cloud providers may charge for usage.
@@ -82,7 +99,8 @@ Grant access in **System Settings > Privacy & Security > Accessibility**. This l
 SayRight read the selected text, place its controls and write back an accepted result.
 
 For development, `make run` builds and launches the app. `make bundle CONFIG=release`
-creates a release build without installing it.
+creates a release build without installing it, and `make dmg` packages that build as
+`build/SayRight.dmg`.
 
 ## Choosing a model
 
@@ -107,8 +125,8 @@ lists the supported integrations and their configuration steps.
 - No streaming output, saved rewrite history or custom prompts.
 - Generated text can change meaning or introduce errors. Review it before replacing
   the original, especially when expanding or translating.
-- Prebuilt bundles are not notarised. Building from source is the documented install
-  path.
+- The downloadable app is not notarised, so macOS asks you to allow it once. Each
+  update also asks for Accessibility access again. Building from source avoids both.
 
 ## Documentation
 
